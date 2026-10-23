@@ -28,8 +28,9 @@ public class XuatBangDiem {
     // Xuất bảng điểm: mỗi sinh viên một dòng
     static List<String> xuatBang(String[] ten, double[] tb) {
         List<String> dong = new ArrayList<>();
-        for (int i = 0; i < ten.length; i++) {
-            dong.add("Hạng " + (i + 1) + ": " + ten[i] + " - " + tb[i] + " - " + xepLoai(tb[i]));
+        dong.add("STT | Họ tên | Điểm TB | Xếp loại");
+        for (int i = 0; i < ten.length - 1; i++) {
+            dong.add(i + 1 + " | " + ten[i] + " | " + tb[i]);
         }
         return dong;
     }
