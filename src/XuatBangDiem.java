@@ -11,7 +11,7 @@ public class XuatBangDiem {
             tongHeSo += heSo[i];
         }
         double tb = tong / tongHeSo;
-        return (int) (tb * 10) / 10.0;
+        return Math.round(tb * 10) / 10.0;
     }
 
     // Xếp loại học lực theo điểm trung bình
