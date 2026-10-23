@@ -44,6 +44,13 @@ public class XuatBangDiem {
         return kq;
     }
 
+    // Thống kê điểm cao nhất, thấp nhất
+    static String thongKe(double[] tb) {
+        double max = tb[0], min = tb[0];
+        for (double d : tb) { if (d > max) max = d; if (d < min) min = d; }
+        return "Cao nhất: " + max + ", thấp nhất: " + min;
+    }
+
     static int kiem(String ten, boolean dat) {
         System.out.println((dat ? "PASS  " : "FAIL  ") + ten);
         return dat ? 0 : 1;
