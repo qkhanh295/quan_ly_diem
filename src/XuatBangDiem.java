@@ -19,7 +19,7 @@ public class XuatBangDiem {
         if (tb >= 8.0) return "Gioi";
         if (tb >= 6.5) return "Kha";
         if (tb >= 5.0) return "Trung binh";
-        return "Yếu";
+        return "Yeu";
     }
 
     static final String[] TEN = {"An", "Binh", "Chi", "Dung"};
@@ -29,7 +29,7 @@ public class XuatBangDiem {
     static List<String> xuatBang(String[] ten, double[] tb) {
         List<String> dong = new ArrayList<>();
         for (int i = 0; i < ten.length; i++) {
-            dong.add((i + 1) + ". " + ten[i] + " - " + tb[i] + " - " + xepLoai(tb[i]));
+            dong.add("Hang " + (i + 1) + ": " + ten[i] + " - " + tb[i] + " - " + xepLoai(tb[i]));
         }
         return dong;
     }
@@ -43,11 +43,11 @@ public class XuatBangDiem {
         int loi = 0;
         if (tatCa) {
             double tb = tinhDiemTB(new double[]{7.6, 8.2, 8.0}, new double[]{0.2, 0.3, 0.5});
-            loi += kiem("Làm tròn điểm TB (kỳ vọng 8.0)", Math.abs(tb - 8.0) < 1e-9);
+            loi += kiem("Lam tron diem TB (kỳ vọng 8.0)", Math.abs(tb - 8.0) < 1e-9);
         }
         String het = String.join("\n", xuatBang(TEN, TB));
         loi += kiem("Bảng điểm có đủ sinh viên", het.contains(TEN[TEN.length - 1]));
-        if (tatCa) loi += kiem("Xếp loại 8.0 là Giỏi", xepLoai(8.0).equals("Giỏi"));
+        if (tatCa) loi += kiem("Xep loai 8.0 la Gioi", xepLoai(8.0).equals("Gioi"));
         return loi == 0 ? 0 : 1;
     }
 
